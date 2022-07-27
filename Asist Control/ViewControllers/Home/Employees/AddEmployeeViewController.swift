@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddEmployeeViewController: UIViewController {
+class AddEmployeeViewController: UIViewController, EmployeeControllerDelegate {
     
     private let containerHeightValue: CGFloat = 1280
     private let spacing: CGFloat = 15
@@ -128,6 +128,8 @@ class AddEmployeeViewController: UIViewController {
         
         return button
     }()
+    
+    private lazy var controller = EmployeeController(controller: self)
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -272,7 +274,11 @@ class AddEmployeeViewController: UIViewController {
         bpsCompanyDropDown.configure(withTitle: "Empresa BPS", with: bpsCompanyDataSource)
     }
     
-    private func allFieldsAreComplete() -> Bool {
+    private func allFieldsAreComplete() -> Employee? {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM/dd/yyyy"
+        
         guard
             let name = nameField.currentText, !name.isEmpty,
             let lastName = lastNameField.currentText, !lastName.isEmpty,
@@ -283,23 +289,41 @@ class AddEmployeeViewController: UIViewController {
             let ci = identityCardField.currentText, !ci.isEmpty,
             let civilState = civilStateField.currentText, !civilState.isEmpty,
             let truck = truckNumberField.currentText, !truck.isEmpty,
-            let noOfKids = numberOfKids.currentText, !noOfKids.isEmpty
-        else { return false }
+            let noOfKids = numberOfKids.currentText, !noOfKids.isEmpty,
+            let date = dateFormatter.date(from: birth)
+        else { return nil }
+
+        let employee = Employee(firstName: name,
+                                lastName: lastName,
+                                ci: ci,
+                                companyBPS: BPSCompany(rawValue: bpsCompanyDropDown.text) ?? .rustic,
+                                role: Role(rawValue: employeeRoleDropDown.text) ?? .assistant,
+                                birthDate: date,
+                                address: address,
+                                phone: phone,
+                                email: email,
+                                truck: truck,
+                                civilState: civilState,
+                                numberOfKids: Int(noOfKids) ?? 0)
         
-        return true
+        return employee
     }
     
-    private func addEmployee() {
-
+    private func add(employee: Employee) {
+        controller.addEmployee(employee)
+    }
+    
+    func employeeWasAdded(_ sucess: Bool) {
+        let alert = UIAlertController(title: "Empleado agregado!", message: "Se ha agregado al empleado correctamente", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { [weak self] _ in
+            self?.navigationController?.popViewController(animated: true)
+        }))
+        present(alert, animated: true)
     }
     
     @objc private func addEmployeeButtonPressed() {
-        if allFieldsAreComplete() {
-            let alert = UIAlertController(title: "Empleado agregado", message: "Acabas de crear un empleado", preferredStyle: .alert)
-            let cancelAction = UIAlertAction(title: "Aceptar", style: .cancel)
-            alert.addAction(cancelAction)
-            
-            present(alert, animated: true)
+        if let employee = allFieldsAreComplete() {
+            add(employee: employee)
         } else {
             let alert = UIAlertController(title: "Datos incompletos", message: "Todos los datos deben ser ingresados para crear un empleado", preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "Aceptar", style: .cancel)

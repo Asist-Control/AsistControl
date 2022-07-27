@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		842819BC2856967700B8B366 /* MenuCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842819BB2856967700B8B366 /* MenuCellView.swift */; };
+		84624A7A289089DD00999CBF /* EmployeeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84624A79289089DD00999CBF /* EmployeeController.swift */; };
+		84624A7C28908A6200999CBF /* FirebaseService+Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84624A7B28908A6200999CBF /* FirebaseService+Employee.swift */; };
 		8468D7D728286B9C008D18D4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8468D7D628286B9C008D18D4 /* ProfileViewController.swift */; };
 		8468D7DA28287368008D18D4 /* AllTrucksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8468D7D928287368008D18D4 /* AllTrucksListViewController.swift */; };
 		8468D7DC282874FF008D18D4 /* Truck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8468D7DB282874FF008D18D4 /* Truck.swift */; };
@@ -48,6 +50,8 @@
 /* Begin PBXFileReference section */
 		4FD501787816374B68F18269 /* Pods_Asist_Control.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Asist_Control.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		842819BB2856967700B8B366 /* MenuCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCellView.swift; sourceTree = "<group>"; };
+		84624A79289089DD00999CBF /* EmployeeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeController.swift; sourceTree = "<group>"; };
+		84624A7B28908A6200999CBF /* FirebaseService+Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FirebaseService+Employee.swift"; sourceTree = "<group>"; };
 		8468D7D628286B9C008D18D4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		8468D7D928287368008D18D4 /* AllTrucksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTrucksListViewController.swift; sourceTree = "<group>"; };
 		8468D7DB282874FF008D18D4 /* Truck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Truck.swift; sourceTree = "<group>"; };
@@ -317,6 +321,7 @@
 			children = (
 				84BE4153281F5718002BC777 /* Login */,
 				8468D7EB2831982E008D18D4 /* Home */,
+				84624A79289089DD00999CBF /* EmployeeController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -365,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				84BE415E28205A86002BC777 /* FirebaseService.swift */,
+				84624A7B28908A6200999CBF /* FirebaseService+Employee.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -516,6 +522,8 @@
 				8468D7ED2831A759008D18D4 /* SelectTruckTableViewCell.swift in Sources */,
 				8468D7DE28287672008D18D4 /* Employee.swift in Sources */,
 				842819BC2856967700B8B366 /* MenuCellView.swift in Sources */,
+				84624A7A289089DD00999CBF /* EmployeeController.swift in Sources */,
+				84624A7C28908A6200999CBF /* FirebaseService+Employee.swift in Sources */,
 				8468D7E6282F31CF008D18D4 /* HomeController.swift in Sources */,
 				84BE4122281EE9ED002BC777 /* SceneDelegate.swift in Sources */,
 				84BE4145281EFADC002BC777 /* Extension+UIColor.swift in Sources */,

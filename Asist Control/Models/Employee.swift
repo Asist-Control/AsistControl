@@ -16,9 +16,21 @@ class Employee {
     }
     
     var firstName: String
-    var secondName: String
+    var secondName: String {
+        get {
+            let split = firstName.split(separator: " ")
+            let name = split.count > 0 ? split[1] : ""
+            return String(name)
+        }
+    }
     var lastName: String
-    var secondLastName: String
+    var secondLastName: String {
+        get {
+            let split = lastName.split(separator: " ")
+            let name = split.count > 0 ? split[1] : ""
+            return String(name)
+        }
+    }
     var ci: String
     var companyBPS: BPSCompany
     var role: Role
@@ -30,11 +42,9 @@ class Employee {
     var civilState: String
     var numberOfKids: Int
     
-    init(firstName: String, secondName: String, lastName: String, secondLastName: String, ci: String, companyBPS: BPSCompany, role: Role, birthDate: Date, address: String, phone: String, email: String, truck: String, civilState: String, numberOfKids: Int) {
+    init(firstName: String, lastName: String, ci: String, companyBPS: BPSCompany, role: Role, birthDate: Date, address: String, phone: String, email: String, truck: String, civilState: String, numberOfKids: Int) {
         self.firstName = firstName
-        self.secondName = secondName
         self.lastName = lastName
-        self.secondLastName = secondLastName
         self.ci = ci
         self.companyBPS = companyBPS
         self.role = role
@@ -68,9 +78,7 @@ class Employee {
         let numberOfKids = data["numberOfKids"] as? Int ?? 0
         
         self.init(firstName: firstName,
-                  secondName: secondName,
                   lastName: lastName,
-                  secondLastName: secondLastName,
                   ci: ci,
                   companyBPS: companyBPS,
                   role: role,

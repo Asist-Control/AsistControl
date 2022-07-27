@@ -47,40 +47,6 @@ struct FirebaseService {
         }
     }
     
-    // MARK: - Employees
-    func getEmployees(completion: @escaping ([Employee]) -> Void) {
-        let docRef = firestore.collection("Employee")
-        var employees = [Employee]()
-        docRef.getDocuments() { querySnapshot, err in
-            if let documents = querySnapshot?.documents, !documents.isEmpty {
-                documents.forEach { document in
-                    let data = document.data()
-                    let employee = Employee(data: data)
-                    employees.append(employee)
-                }
-                completion(employees)
-            } else {
-                print("There was a problem getting the documents for Employees")
-            }
-        }
-    }
-    
-    func getEmployee(with id: String, completion: @escaping (Employee?) -> Void) {
-        let docRef = firestore.collection("Employee").document(id)
-        
-        docRef.getDocument { document, error in
-            if let document = document, document.exists {
-                guard let data = document.data() else { return }
-                
-                let employee = Employee(data: data)
-                completion(employee)
-            } else {
-                print("There was a problem getting the document for employee id: \(id)")
-                completion(nil)
-            }
-        }
-    }
-    
     // MARK: - Trucks
     func getTrucks(completion: @escaping ([Truck]?) -> Void) {
         let collection = firestore.collection("Truck")

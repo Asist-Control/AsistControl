@@ -15,6 +15,12 @@ class ACDropDown: UIView {
     private let buttonHeight = CGFloat(50)
     private let labelHeight = CGFloat(20)
     
+    public var text: String {
+        get {
+            return dropDownButton.titleLabel?.text ?? ""
+        }
+    }
+    
     private let label: UILabel = {
         let label = UILabel(frame: .zero)
         label.font = .body2Bold
