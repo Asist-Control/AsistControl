@@ -10,5 +10,5 @@ import Foundation
 enum BPSCompany: String, CaseIterable {
     case rustic = "Rustic"
     case sadel = "Sadel"
-    case delta = "Delta"
+    case delsa = "Delsa"
 }

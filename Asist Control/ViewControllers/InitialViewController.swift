@@ -60,7 +60,7 @@ class InitialViewController: UIViewController {
             present(login, animated: true)
             return
         }
-        let homeVC = AllTrucksListViewController()
+        let homeVC = HomeTrucksListViewController()
         let nav = UINavigationController(rootViewController: homeVC)
         nav.modalPresentationStyle = .fullScreen
         nav.modalTransitionStyle = .crossDissolve

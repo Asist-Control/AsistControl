@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		842819BC2856967700B8B366 /* MenuCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842819BB2856967700B8B366 /* MenuCellView.swift */; };
+		843EA1F528D6046300628E0B /* SelectedTrucksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EA1F428D6046300628E0B /* SelectedTrucksViewController.swift */; };
+		843EA1FB28D9161800628E0B /* AllTrucksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EA1FA28D9161700628E0B /* AllTrucksListViewController.swift */; };
+		843EA1FD28D9186100628E0B /* TruckController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EA1FC28D9186100628E0B /* TruckController.swift */; };
 		84624A7A289089DD00999CBF /* EmployeeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84624A79289089DD00999CBF /* EmployeeController.swift */; };
 		84624A7C28908A6200999CBF /* FirebaseService+Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84624A7B28908A6200999CBF /* FirebaseService+Employee.swift */; };
 		8468D7D728286B9C008D18D4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8468D7D628286B9C008D18D4 /* ProfileViewController.swift */; };
-		8468D7DA28287368008D18D4 /* AllTrucksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8468D7D928287368008D18D4 /* AllTrucksListViewController.swift */; };
+		8468D7DA28287368008D18D4 /* HomeTrucksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8468D7D928287368008D18D4 /* HomeTrucksListViewController.swift */; };
 		8468D7DC282874FF008D18D4 /* Truck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8468D7DB282874FF008D18D4 /* Truck.swift */; };
 		8468D7DE28287672008D18D4 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8468D7DD28287672008D18D4 /* Employee.swift */; };
 		8468D7E028287810008D18D4 /* BPSCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8468D7DF28287810008D18D4 /* BPSCompany.swift */; };
@@ -50,10 +53,13 @@
 /* Begin PBXFileReference section */
 		4FD501787816374B68F18269 /* Pods_Asist_Control.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Asist_Control.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		842819BB2856967700B8B366 /* MenuCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCellView.swift; sourceTree = "<group>"; };
+		843EA1F428D6046300628E0B /* SelectedTrucksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTrucksViewController.swift; sourceTree = "<group>"; };
+		843EA1FA28D9161700628E0B /* AllTrucksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTrucksListViewController.swift; sourceTree = "<group>"; };
+		843EA1FC28D9186100628E0B /* TruckController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckController.swift; sourceTree = "<group>"; };
 		84624A79289089DD00999CBF /* EmployeeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeController.swift; sourceTree = "<group>"; };
 		84624A7B28908A6200999CBF /* FirebaseService+Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FirebaseService+Employee.swift"; sourceTree = "<group>"; };
 		8468D7D628286B9C008D18D4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		8468D7D928287368008D18D4 /* AllTrucksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTrucksListViewController.swift; sourceTree = "<group>"; };
+		8468D7D928287368008D18D4 /* HomeTrucksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTrucksListViewController.swift; sourceTree = "<group>"; };
 		8468D7DB282874FF008D18D4 /* Truck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Truck.swift; sourceTree = "<group>"; };
 		8468D7DD28287672008D18D4 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		8468D7DF28287810008D18D4 /* BPSCompany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPSCompany.swift; sourceTree = "<group>"; };
@@ -125,7 +131,8 @@
 			isa = PBXGroup;
 			children = (
 				842819B92856964300B8B366 /* Views */,
-				8468D7D928287368008D18D4 /* AllTrucksListViewController.swift */,
+				8468D7D928287368008D18D4 /* HomeTrucksListViewController.swift */,
+				843EA1F428D6046300628E0B /* SelectedTrucksViewController.swift */,
 			);
 			path = SelectTrucks;
 			sourceTree = "<group>";
@@ -144,6 +151,14 @@
 				842819BB2856967700B8B366 /* MenuCellView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		843EA1FE28DD3CA500628E0B /* Trucks */ = {
+			isa = PBXGroup;
+			children = (
+				843EA1FA28D9161700628E0B /* AllTrucksListViewController.swift */,
+			);
+			path = Trucks;
 			sourceTree = "<group>";
 		};
 		8468D7D8282872FD008D18D4 /* Profile */ = {
@@ -241,10 +256,13 @@
 		84BE4135281EF9D8002BC777 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8473FDFD2862D4A300B89513 /* Employees */,
+				842819B72856853E00B8B366 /* Menu */,
 				84BE4154281F67D1002BC777 /* Home */,
 				84BE4139281EFA3B002BC777 /* Login */,
 				8468D7D8282872FD008D18D4 /* Profile */,
 				84BE4123281EE9ED002BC777 /* InitialViewController.swift */,
+				843EA1FE28DD3CA500628E0B /* Trucks */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -322,6 +340,7 @@
 				84BE4153281F5718002BC777 /* Login */,
 				8468D7EB2831982E008D18D4 /* Home */,
 				84624A79289089DD00999CBF /* EmployeeController.swift */,
+				843EA1FC28D9186100628E0B /* TruckController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -339,8 +358,6 @@
 			children = (
 				84BE4155281F67E7002BC777 /* HomeViewController.swift */,
 				842819B82856961F00B8B366 /* SelectTrucks */,
-				842819B72856853E00B8B366 /* Menu */,
-				8473FDFD2862D4A300B89513 /* Employees */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -511,12 +528,14 @@
 				84BE4124281EE9ED002BC777 /* InitialViewController.swift in Sources */,
 				84902DEF2886248C00075AA3 /* ACDateField.swift in Sources */,
 				84BE4143281EFADC002BC777 /* Extension+UIView.swift in Sources */,
-				8468D7DA28287368008D18D4 /* AllTrucksListViewController.swift in Sources */,
+				8468D7DA28287368008D18D4 /* HomeTrucksListViewController.swift in Sources */,
 				84BE4120281EE9ED002BC777 /* AppDelegate.swift in Sources */,
+				843EA1FB28D9161800628E0B /* AllTrucksListViewController.swift in Sources */,
 				8468D7D728286B9C008D18D4 /* ProfileViewController.swift in Sources */,
 				8468D7E028287810008D18D4 /* BPSCompany.swift in Sources */,
 				84BE415B28203848002BC777 /* Current.swift in Sources */,
 				84BE4158281F6C21002BC777 /* User.swift in Sources */,
+				843EA1FD28D9186100628E0B /* TruckController.swift in Sources */,
 				84BE4142281EFADC002BC777 /* Extension+UITextField.swift in Sources */,
 				8473FDFF2862D4C700B89513 /* AddEmployeeViewController.swift in Sources */,
 				8468D7ED2831A759008D18D4 /* SelectTruckTableViewCell.swift in Sources */,
@@ -525,6 +544,7 @@
 				84624A7A289089DD00999CBF /* EmployeeController.swift in Sources */,
 				84624A7C28908A6200999CBF /* FirebaseService+Employee.swift in Sources */,
 				8468D7E6282F31CF008D18D4 /* HomeController.swift in Sources */,
+				843EA1F528D6046300628E0B /* SelectedTrucksViewController.swift in Sources */,
 				84BE4122281EE9ED002BC777 /* SceneDelegate.swift in Sources */,
 				84BE4145281EFADC002BC777 /* Extension+UIColor.swift in Sources */,
 				84BE414C281EFB72002BC777 /* ACButton.swift in Sources */,

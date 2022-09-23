@@ -17,19 +17,19 @@ class Employee {
     
     var firstName: String
     var secondName: String {
-        get {
-            let split = firstName.split(separator: " ")
-            let name = split.count > 0 ? split[1] : ""
-            return String(name)
-        }
+      get {
+        let split = firstName.split(separator: " ")
+        let name = split.count > 1 ? split[1] : ""
+        return String(name)
+      }
     }
     var lastName: String
     var secondLastName: String {
-        get {
-            let split = lastName.split(separator: " ")
-            let name = split.count > 0 ? split[1] : ""
-            return String(name)
-        }
+      get {
+        let split = lastName.split(separator: " ")
+        let name = split.count > 1 ? split[1] : ""
+        return String(name)
+      }
     }
     var ci: String
     var companyBPS: BPSCompany

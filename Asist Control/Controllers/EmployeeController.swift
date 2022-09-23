@@ -8,17 +8,25 @@
 import Foundation
 import UIKit
 
-protocol EmployeeControllerDelegate {
-    func employeeWasAdded(_ sucess: Bool)
+@objc protocol EmployeeControllerDelegate {
+  @objc optional func employeeWasAdded(_ sucess: Bool)
+  @objc optional func reloadEmployees(_ employees: [Any])
 }
 
 struct EmployeeController {
     
-    var controller: EmployeeControllerDelegate
-    
-    func addEmployee(_ employee: Employee) {
-        FirebaseService.shared.createEmployee(employee) { success in
-            controller.employeeWasAdded(success)
-        }
+  var delegate: EmployeeControllerDelegate
+  
+  func addEmployee(_ employee: Employee) {
+    FirebaseService.shared.createEmployee(employee) { success in
+      delegate.employeeWasAdded?(success)
     }
+  }
+
+  func loadEmployees() {
+    FirebaseService.shared.getEmployees { employees in
+      delegate.reloadEmployees?(employees.sorted(by: { $0.firstName < $1.firstName }))
+    }
+  }
+  
 }

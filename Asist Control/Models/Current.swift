@@ -26,9 +26,9 @@ class Current {
         }
     }
     
-    var deltaTrucks: [Truck] {
+    var delsaTrucks: [Truck] {
         get {
-            return trucks.filter({ $0.companyBPS == .delta })
+            return trucks.filter({ $0.companyBPS == .delsa })
         }
     }
     
