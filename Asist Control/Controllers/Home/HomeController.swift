@@ -8,37 +8,40 @@
 import Foundation
 
 protocol HomeControllerDelegate {
-    func dataLoaded()
+  func dataLoaded()
 }
 
 struct HomeController {
-    
-    var delegate: HomeControllerDelegate
-    
-    func getAllTrucksAndLoadThemIntoApp() {
-        FirebaseService.shared.getTrucks { trucks in
-            guard let trucks = trucks else {
-                print("There was an error loading the trucks")
-                return
-            }
-            Current.shared.trucks = trucks
-            getEmployeesForEachTruck()
-        }
+  
+  var delegate: HomeControllerDelegate
+  
+  func getAllTrucksAndLoadThemIntoApp() {
+    FirebaseService.shared.getTrucks { trucks in
+      guard let trucks = trucks else {
+        print("There was an error loading the trucks")
+        return
+      }
+      Current.shared.trucks = trucks
+      getEmployeesForEachTruck()
     }
-    
-    func getEmployeesForEachTruck() {
-        let trucks = Current.shared.trucks
-        
-        trucks.forEach { truck in
-            let employees = truck.employeesIds
-            employees.forEach { id in
-                FirebaseService.shared.getEmployee(with: id) { employee in
-                    guard let employee = employee else { return }
-                    truck.employees.append(employee)
-                    delegate.dataLoaded()
-                }
-            }
-        }
-    }
+  }
+  
+  func getEmployeesForEachTruck() {
+    let trucks = Current.shared.trucks
 
+    FirebaseService.shared.getEmployees { employees in
+      trucks.forEach { truck in
+        let truckEmployees = truck.employeesIds
+        truckEmployees.forEach { truckEmployee in
+          employees.forEach { employee in
+            if truckEmployee == employee.ci {
+              truck.employees.append(employee)
+              delegate.dataLoaded()
+            }
+          }
+        }
+      }
+    }
+  }
+  
 }

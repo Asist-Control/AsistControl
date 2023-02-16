@@ -203,7 +203,7 @@ class LoginViewController: UIViewController, LoginDelegate {
     
     func loginWasSuccessful() {
         logInButton.stopLoading()
-        let homeVC = AllTrucksListViewController()
+        let homeVC = HomeTrucksListViewController()
         let nav = UINavigationController(rootViewController: homeVC)
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true)

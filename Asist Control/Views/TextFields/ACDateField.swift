@@ -86,7 +86,7 @@ class ACDateField: UIView {
         textField.inputView = datePicker
         textField.text = formatDate(date: Date())
         
-        icon.image = UIImage(systemName: "calendar")
+      icon.image = .calendar
     }
     
     // MARK: - Setups
