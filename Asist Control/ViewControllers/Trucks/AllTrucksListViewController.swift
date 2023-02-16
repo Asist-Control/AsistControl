@@ -32,6 +32,11 @@ class AllTrucksListViewController: UIViewController {
     loadTrucks()
   }
 
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    tableView.reloadData()
+  }
+
   private func setupSubviews() {
     view.addSubview(tableView)
   }
@@ -46,7 +51,7 @@ class AllTrucksListViewController: UIViewController {
   }
 
   private func setupTopBarActions() {
-    let addEmployeesItem = UIBarButtonItem(image: UIImage(systemName: "person.fill.badge.plus"), style: .plain, target: self, action: #selector(goToAddTruckScreen))
+    let addEmployeesItem = UIBarButtonItem(image: .personFillBadgePlus, style: .plain, target: self, action: #selector(goToAddTruckScreen))
     addEmployeesItem.tintColor = .primaryLabel
     navigationItem.rightBarButtonItem = addEmployeesItem
     navigationItem.backButtonTitle = ""
@@ -54,7 +59,8 @@ class AllTrucksListViewController: UIViewController {
   }
 
   @objc private func goToAddTruckScreen() {
-    
+    let addTruckViewController = AddTruckViewController()
+    navigationController?.pushViewController(addTruckViewController, animated: true)
   }
 
   private func loadTrucks() {
@@ -67,10 +73,6 @@ class AllTrucksListViewController: UIViewController {
 }
 
 extension AllTrucksListViewController: UITableViewDataSource {
-
-//  func numberOfSections(in tableView: UITableView) -> Int {
-//    return BPSCompany.allCases.count
-//  }
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return allTrucks.count

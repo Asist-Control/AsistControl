@@ -9,7 +9,7 @@ import UIKit
 
 class AddEmployeeViewController: UIViewController, EmployeeControllerDelegate {
     
-  private let containerHeightValue: CGFloat = 1280
+  private let containerHeightValue: CGFloat = 1180
   private let spacing: CGFloat = 15
   private let sidePadding: CGFloat = 20
   
@@ -105,14 +105,6 @@ class AddEmployeeViewController: UIViewController, EmployeeControllerDelegate {
     return dd
   }()
   
-  private let truckNumberField: TextInputView = {
-    let field = TextInputView()
-    field.configure(withStyle: .number, title: "Camión")
-    field.enableAutolayout()
-    
-    return field
-  }()
-  
   private let numberOfKids: TextInputView = {
     let field = TextInputView()
     field.configure(withStyle: .number, title: "Cantidad de Hijos")
@@ -167,7 +159,6 @@ class AddEmployeeViewController: UIViewController, EmployeeControllerDelegate {
     container.addSubview(civilStateField)
     container.addSubview(employeeRoleDropDown)
     container.addSubview(bpsCompanyDropDown)
-    container.addSubview(truckNumberField)
     container.addSubview(numberOfKids)
     
     container.addSubview(addEmployeeButton)
@@ -240,12 +231,7 @@ class AddEmployeeViewController: UIViewController, EmployeeControllerDelegate {
       bpsCompanyDropDown.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -sidePadding),
       bpsCompanyDropDown.heightAnchor.constraint(equalToConstant: TextInputView.height),
       
-      truckNumberField.topAnchor.constraint(equalTo: bpsCompanyDropDown.bottomAnchor, constant: spacing),
-      truckNumberField.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: sidePadding),
-      truckNumberField.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -sidePadding),
-      truckNumberField.heightAnchor.constraint(equalToConstant: TextInputView.height),
-      
-      numberOfKids.topAnchor.constraint(equalTo: truckNumberField.bottomAnchor, constant: spacing),
+      numberOfKids.topAnchor.constraint(equalTo: bpsCompanyDropDown.bottomAnchor, constant: spacing),
       numberOfKids.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: sidePadding),
       numberOfKids.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -sidePadding),
       numberOfKids.heightAnchor.constraint(equalToConstant: TextInputView.height),
@@ -288,7 +274,6 @@ class AddEmployeeViewController: UIViewController, EmployeeControllerDelegate {
       let phone = phoneField.currentText, !phone.isEmpty,
       let ci = identityCardField.currentText, !ci.isEmpty,
       let civilState = civilStateField.currentText, !civilState.isEmpty,
-      let truck = truckNumberField.currentText, !truck.isEmpty,
       let noOfKids = numberOfKids.currentText, !noOfKids.isEmpty,
       let date = dateFormatter.date(from: birth)
     else { return nil }
@@ -302,7 +287,7 @@ class AddEmployeeViewController: UIViewController, EmployeeControllerDelegate {
                             address: address,
                             phone: phone,
                             email: email,
-                            truck: truck,
+                            truck: "",
                             civilState: civilState,
                             numberOfKids: Int(noOfKids) ?? 0)
     

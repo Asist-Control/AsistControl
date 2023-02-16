@@ -30,11 +30,11 @@ class HomeViewController: UIViewController {
     title = "Inicio"
     navigationController?.navigationBar.topItem?.titleView?.tintColor = .primaryLabel
     
-    let profileIcon = UIBarButtonItem(image: UIImage(systemName: "person.circle.fill"), style: .plain, target: self, action: #selector(openProfileView))
+    let profileIcon = UIBarButtonItem(image: .personCircleFill, style: .plain, target: self, action: #selector(openProfileView))
     profileIcon.tintColor = .primary
     navigationController?.navigationBar.topItem?.rightBarButtonItem = profileIcon
     
-    let menuIcon = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"), style: .plain, target: self, action: #selector(openMenuView))
+    let menuIcon = UIBarButtonItem(image: .line3Horizontal, style: .plain, target: self, action: #selector(openMenuView))
     menuIcon.tintColor = .primary
     navigationController?.navigationBar.topItem?.leftBarButtonItem = menuIcon
   }

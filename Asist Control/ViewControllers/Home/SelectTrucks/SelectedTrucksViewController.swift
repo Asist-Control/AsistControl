@@ -11,6 +11,7 @@ class SelectedTrucksViewController: UIViewController {
 
   private var selectedTrucks: [Truck] = []
   var sections = BPSCompany.allCases
+  let controller = TruckController()
 
   private let listViewTitle: UILabel = {
     let label = UILabel()
@@ -62,6 +63,7 @@ class SelectedTrucksViewController: UIViewController {
     setupSubviews()
     setupConstraints()
     setupTitleTextWithDate()
+    setupActions()
 
     listView.delegate = self
     listView.dataSource = self
@@ -123,6 +125,24 @@ class SelectedTrucksViewController: UIViewController {
     tableViewHeight?.isActive = true
   }
 
+  private func setupActions() {
+    continueButton.addTarget(self, action: #selector(continueButtonTapped), for: .touchUpInside)
+  }
+
+  @objc private func continueButtonTapped() {
+    controller.uploadSelectedTrucks(trucks: selectedTrucks) { success in
+      if success {
+        // TODO: Add confirmation screen
+        let alert = UIAlertController(title: "Success", message: "Bien ahi", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Dale", style: .default) { _ in
+          // TODO: Go to Home View Controller
+        }
+        alert.addAction(action)
+        present(alert, animated: true)
+      }
+    }
+  }
+
   private func setupTitleTextWithDate() {
     listViewTitle.text = Current.Today().stringDate
   }
@@ -130,18 +150,28 @@ class SelectedTrucksViewController: UIViewController {
   func configure(with trucks: [Truck]) {
     selectedTrucks = trucks
   }
+
+  private func editTruckWasPressed(for truck: Truck) {
+    let editTruckView = EditTruckView()
+    editTruckView.configure(with: truck, for: view)
+
+    NSLayoutConstraint.activate([
+      editTruckView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      editTruckView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+    ])
+  }
 }
 
 extension SelectedTrucksViewController: UITableViewDataSource {
-  
+
   func numberOfSections(in tableView: UITableView) -> Int {
     return sections.count
   }
-  
+
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     return sections[section].rawValue
   }
-  
+
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     let company = sections[section]
     switch company {
@@ -156,18 +186,19 @@ extension SelectedTrucksViewController: UITableViewDataSource {
       return delsaTrucks.count
     }
   }
-  
+
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-    
+    cell.selectionStyle = .none
+    cell.backgroundColor = .clear
     guard selectedTrucks.count > 0 else { return cell }
-    
-    let truck = selectedTrucks[0]
+
+    let truck = selectedTrucks[indexPath.row]
     cell.textLabel?.text = truck.id
-    
+
     return cell
   }
-  
+
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return CGFloat(50)
   }
@@ -175,17 +206,13 @@ extension SelectedTrucksViewController: UITableViewDataSource {
 
 extension SelectedTrucksViewController: UITableViewDelegate {
 
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let truck = selectedTrucks[indexPath.row]
-    print(truck.driver?.firstName)
-  }
-
   func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-    // TODO: Swipe
-    let action = UIContextualAction(style: .normal, title: "Deselect") { action, view, completion in
+    let action = UIContextualAction(style: .normal, title: "Borrar") { [weak self] action, view, completion in
+      guard let self else { return }
       let index = indexPath.row
       self.selectedTrucks.remove(at: index)
       self.listView.reloadData()
+      completion(true)
     }
     action.backgroundColor = .red
     let swipe = UISwipeActionsConfiguration(actions: [action])
@@ -193,12 +220,13 @@ extension SelectedTrucksViewController: UITableViewDelegate {
   }
 
   func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-    let action = UIContextualAction(style: .normal, title: "Edit") { action, view, completion in
+    let action = UIContextualAction(style: .normal, title: "Editar") { [weak self] action, view, completion in
+      guard let self else { return }
       let truck = self.selectedTrucks[indexPath.row]
-      print("\(truck.id) + \(truck.driverId)")
-      // TODO: Create Edit Truck View
-      // This view should let the user update the driver and the assistants.
+      self.editTruckWasPressed(for: truck)
+      completion(true)
     }
+    action.backgroundColor = .successGreen
     let swipe = UISwipeActionsConfiguration(actions: [action])
     swipe.performsFirstActionWithFullSwipe = false
     return swipe

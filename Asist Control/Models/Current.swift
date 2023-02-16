@@ -8,51 +8,52 @@
 import Foundation
 
 class Current {
+  
+  static let shared = Current()
+  
+  var user: User?
+  var trucks: [Truck] = []
+  var employees: [Employee] = []
+  
+  var rusticTrucks: [Truck] {
+    get {
+      return trucks.filter({ $0.companyBPS == .rustic })
+    }
+  }
+  
+  var sadelTrucks: [Truck] {
+    get {
+      return trucks.filter({ $0.companyBPS == .sadel })
+    }
+  }
+  
+  var delsaTrucks: [Truck] {
+    get {
+      return trucks.filter({ $0.companyBPS == .delsa })
+    }
+  }
+  
+  struct Today {
     
-    static let shared = Current()
-    
-    var user: User?
-    var trucks: [Truck] = []
-    
-    var rusticTrucks: [Truck] {
-        get {
-            return trucks.filter({ $0.companyBPS == .rustic })
-        }
+    var stringDate: String {
+      get {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMMM, yyyy"
+        dateFormatter.locale = Locale(identifier: "es")
+        return dateFormatter.string(from: date)
+      }
     }
     
-    var sadelTrucks: [Truck] {
-        get {
-            return trucks.filter({ $0.companyBPS == .sadel })
-        }
+    var date: String {
+      get {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        dateFormatter.locale = Locale(identifier: "es")
+        return dateFormatter.string(from: date)
+      }
     }
     
-    var delsaTrucks: [Truck] {
-        get {
-            return trucks.filter({ $0.companyBPS == .delsa })
-        }
-    }
-    
-    struct Today {
-        
-        var stringDate: String {
-            get {
-                let date = Date()
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "dd MMMM, yyyy"
-                dateFormatter.locale = Locale(identifier: "es")
-                return dateFormatter.string(from: date)
-            }
-        }
-        
-        var date: String {
-            get {
-                let date = Date()
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "dd/MM/yyyy"
-                dateFormatter.locale = Locale(identifier: "es")
-                return dateFormatter.string(from: date)
-            }
-        }
-        
-    }
+  }
 }

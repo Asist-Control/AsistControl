@@ -1,63 +1,46 @@
 //
-//  ListEmployeesViewController.swift
+//  BPSCompaniesViewController.swift
 //  Asist Control
 //
-//  Created by Rodrigo Camargo on 6/22/22.
+//  Created by Rodrigo Camargo on 2/4/23.
 //
 
 import UIKit
 
-class ListEmployeesViewController: UIViewController, EmployeeControllerDelegate {
+class BPSCompaniesViewController: UIViewController, BPSCompanyControllerDelegate {
 
   // MARK: - Subviews
   private let tableView: UITableView = {
     let table = UITableView()
     table.backgroundColor = .clear
     table.enableAutolayout()
-
+    
     return table
   }()
-
+  
   // MARK: - Properties
-  private var employees: [Employee] = []
-  private lazy var controller = EmployeeController(delegate: self)
+  private var items: [BPSCompany] = []
+  private lazy var controller = BPSCompanyController(delegate: self)
   private var delegate: EmployeeControllerDelegate?
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
     setupSubviews()
-    setupTopBarActions()
     setupConstraints()
-
-    delegate = self
-  }
-
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-
-    controller.loadEmployees()
-  }
-
-  private func setupTopBarActions() {
-    title = "Empleados"
-    
-    let addEmployeesItem = UIBarButtonItem(image: .personFillBadgePlus, style: .plain, target: self, action: #selector(addEmployee))
-    addEmployeesItem.tintColor = .primaryLabel
-    navigationItem.rightBarButtonItem = addEmployeesItem
-    navigationItem.backButtonTitle = ""
-    navigationItem.backBarButtonItem?.tintColor = .label
+    setupTopBarActions()
+    setupTableContent()
   }
 
   private func setupSubviews() {
     view.backgroundColor = .background
-
+    
     view.addSubview(tableView)
     tableView.delegate = self
     tableView.dataSource = self
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
   }
-
+  
   private func setupConstraints() {
     NSLayoutConstraint.activate([
       tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
@@ -67,33 +50,42 @@ class ListEmployeesViewController: UIViewController, EmployeeControllerDelegate 
     ])
   }
 
-  @objc private func addEmployee() {
-    let vc = AddEmployeeViewController()
-    navigationController?.pushViewController(vc, animated: true)
+  private func setupTopBarActions() {
+    title = "Empresas BPS"
+    
+    let addBPSCompany = UIBarButtonItem(image: .personFillBadgePlus, style: .plain, target: self, action: #selector(addBpsCompany))
+    addBPSCompany.tintColor = .primaryLabel
+    navigationItem.rightBarButtonItem = addBPSCompany
+    navigationItem.backButtonTitle = ""
+    navigationItem.backBarButtonItem?.tintColor = .label
   }
 
-  func reloadEmployees(_ employees: [Any]) {
-    guard let employees = employees as? [Employee] else { return }
-    self.employees = employees
+  private func setupTableContent() {
+    items = controller.getBPSCompanies()
     tableView.reloadData()
   }
 
+  @objc private func addBpsCompany() {
+    let vc = AddBPSCompanyViewController()
+    navigationController?.pushViewController(vc, animated: true)
+  }
 }
 
-extension ListEmployeesViewController: UITableViewDataSource {
+extension BPSCompaniesViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return employees.count
+    return items.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+    let item = items[indexPath.row]
+    cell.textLabel?.text = item.rawValue
 
-    cell.textLabel?.text = employees[indexPath.row].displayName
-    cell.backgroundColor = .clear
     return cell
   }
+  
 }
 
-extension ListEmployeesViewController: UITableViewDelegate {
+extension BPSCompaniesViewController: UITableViewDelegate {
   
 }

@@ -149,6 +149,7 @@ class HomeTrucksListViewController: HomeViewController, HomeControllerDelegate {
   func dataLoaded() {
     trucks = Current.shared.trucks
     listView.reloadData()
+    view.layoutIfNeeded()
   }
 
   @objc private func continueButtonWasTapped() {
@@ -185,9 +186,9 @@ extension HomeTrucksListViewController: UITableViewDataSource {
     
     guard let cell = cell as? SelectTruckTableViewCell, trucks.count > 0 else { return cell }
     
-    let truck = trucks[0]
+    let truck = trucks[indexPath.row]
     cell.configure(with: truck)
-    
+
     return cell
   }
   

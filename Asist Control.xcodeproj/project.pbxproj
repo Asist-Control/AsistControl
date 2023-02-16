@@ -7,10 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8403023E298F0EFE008A507D /* BPSCompaniesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403023D298F0EFE008A507D /* BPSCompaniesViewController.swift */; };
+		84030241298F1AA7008A507D /* BPSCompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84030240298F1AA7008A507D /* BPSCompanyController.swift */; };
+		840302432991EA6A008A507D /* AddBPSCompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840302422991EA6A008A507D /* AddBPSCompanyViewController.swift */; };
 		842819BC2856967700B8B366 /* MenuCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842819BB2856967700B8B366 /* MenuCellView.swift */; };
 		843EA1F528D6046300628E0B /* SelectedTrucksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EA1F428D6046300628E0B /* SelectedTrucksViewController.swift */; };
 		843EA1FB28D9161800628E0B /* AllTrucksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EA1FA28D9161700628E0B /* AllTrucksListViewController.swift */; };
 		843EA1FD28D9186100628E0B /* TruckController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EA1FC28D9186100628E0B /* TruckController.swift */; };
+		843EA22328DE799D00628E0B /* EditTruckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EA22228DE799D00628E0B /* EditTruckView.swift */; };
+		843EA22828DE97D800628E0B /* EditTruckPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EA22728DE97D800628E0B /* EditTruckPopUpViewController.swift */; };
+		843EA22A28DFCBCD00628E0B /* AllEmployeesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EA22928DFCBCD00628E0B /* AllEmployeesListView.swift */; };
+		84538CBC2936FA77005BF39C /* SelectEmployeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84538CBB2936FA77005BF39C /* SelectEmployeeView.swift */; };
+		84538CC2294666E7005BF39C /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84538CC1294666E7005BF39C /* Extension+UIImage.swift */; };
 		84624A7A289089DD00999CBF /* EmployeeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84624A79289089DD00999CBF /* EmployeeController.swift */; };
 		84624A7C28908A6200999CBF /* FirebaseService+Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84624A7B28908A6200999CBF /* FirebaseService+Employee.swift */; };
 		8468D7D728286B9C008D18D4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8468D7D628286B9C008D18D4 /* ProfileViewController.swift */; };
@@ -27,6 +35,8 @@
 		8473FE012862D4F700B89513 /* ListEmployeesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8473FE002862D4F700B89513 /* ListEmployeesViewController.swift */; };
 		84902DEC2886019300075AA3 /* ACDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84902DEB2886019300075AA3 /* ACDropDown.swift */; };
 		84902DEF2886248C00075AA3 /* ACDateField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84902DEE2886248C00075AA3 /* ACDateField.swift */; };
+		84ABA9222908B05400349E57 /* AddTruckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ABA9212908B05400349E57 /* AddTruckViewController.swift */; };
+		84AF320F28E5136E00110C47 /* GenericHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AF320E28E5136E00110C47 /* GenericHeaderView.swift */; };
 		84BE4120281EE9ED002BC777 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE411F281EE9ED002BC777 /* AppDelegate.swift */; };
 		84BE4122281EE9ED002BC777 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE4121281EE9ED002BC777 /* SceneDelegate.swift */; };
 		84BE4124281EE9ED002BC777 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE4123281EE9ED002BC777 /* InitialViewController.swift */; };
@@ -52,10 +62,18 @@
 
 /* Begin PBXFileReference section */
 		4FD501787816374B68F18269 /* Pods_Asist_Control.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Asist_Control.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8403023D298F0EFE008A507D /* BPSCompaniesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPSCompaniesViewController.swift; sourceTree = "<group>"; };
+		84030240298F1AA7008A507D /* BPSCompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPSCompanyController.swift; sourceTree = "<group>"; };
+		840302422991EA6A008A507D /* AddBPSCompanyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBPSCompanyViewController.swift; sourceTree = "<group>"; };
 		842819BB2856967700B8B366 /* MenuCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCellView.swift; sourceTree = "<group>"; };
 		843EA1F428D6046300628E0B /* SelectedTrucksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTrucksViewController.swift; sourceTree = "<group>"; };
 		843EA1FA28D9161700628E0B /* AllTrucksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTrucksListViewController.swift; sourceTree = "<group>"; };
 		843EA1FC28D9186100628E0B /* TruckController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckController.swift; sourceTree = "<group>"; };
+		843EA22228DE799D00628E0B /* EditTruckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTruckView.swift; sourceTree = "<group>"; };
+		843EA22728DE97D800628E0B /* EditTruckPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTruckPopUpViewController.swift; sourceTree = "<group>"; };
+		843EA22928DFCBCD00628E0B /* AllEmployeesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEmployeesListView.swift; sourceTree = "<group>"; };
+		84538CBB2936FA77005BF39C /* SelectEmployeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEmployeeView.swift; sourceTree = "<group>"; };
+		84538CC1294666E7005BF39C /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
 		84624A79289089DD00999CBF /* EmployeeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeController.swift; sourceTree = "<group>"; };
 		84624A7B28908A6200999CBF /* FirebaseService+Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FirebaseService+Employee.swift"; sourceTree = "<group>"; };
 		8468D7D628286B9C008D18D4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +90,8 @@
 		8473FE002862D4F700B89513 /* ListEmployeesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEmployeesViewController.swift; sourceTree = "<group>"; };
 		84902DEB2886019300075AA3 /* ACDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACDropDown.swift; sourceTree = "<group>"; };
 		84902DEE2886248C00075AA3 /* ACDateField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACDateField.swift; sourceTree = "<group>"; };
+		84ABA9212908B05400349E57 /* AddTruckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTruckViewController.swift; sourceTree = "<group>"; };
+		84AF320E28E5136E00110C47 /* GenericHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericHeaderView.swift; sourceTree = "<group>"; };
 		84BE411C281EE9ED002BC777 /* Asist Control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Asist Control.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84BE411F281EE9ED002BC777 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84BE4121281EE9ED002BC777 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +138,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8403023C298F0ED1008A507D /* BPSCompany */ = {
+			isa = PBXGroup;
+			children = (
+				8403023D298F0EFE008A507D /* BPSCompaniesViewController.swift */,
+				840302422991EA6A008A507D /* AddBPSCompanyViewController.swift */,
+			);
+			path = BPSCompany;
+			sourceTree = "<group>";
+		};
+		8403023F298F1A89008A507D /* BPSCompany */ = {
+			isa = PBXGroup;
+			children = (
+				84030240298F1AA7008A507D /* BPSCompanyController.swift */,
+			);
+			path = BPSCompany;
+			sourceTree = "<group>";
+		};
 		842819B72856853E00B8B366 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,8 +194,37 @@
 			isa = PBXGroup;
 			children = (
 				843EA1FA28D9161700628E0B /* AllTrucksListViewController.swift */,
+				84ABA9212908B05400349E57 /* AddTruckViewController.swift */,
 			);
 			path = Trucks;
+			sourceTree = "<group>";
+		};
+		843EA22528DE79B300628E0B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				84538CBA2936F994005BF39C /* SelectEmployeeView */,
+				843EA22628DE97B400628E0B /* EditTruck */,
+				843EA22928DFCBCD00628E0B /* AllEmployeesListView.swift */,
+				84AF320E28E5136E00110C47 /* GenericHeaderView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		843EA22628DE97B400628E0B /* EditTruck */ = {
+			isa = PBXGroup;
+			children = (
+				843EA22228DE799D00628E0B /* EditTruckView.swift */,
+				843EA22728DE97D800628E0B /* EditTruckPopUpViewController.swift */,
+			);
+			path = EditTruck;
+			sourceTree = "<group>";
+		};
+		84538CBA2936F994005BF39C /* SelectEmployeeView */ = {
+			isa = PBXGroup;
+			children = (
+				84538CBB2936FA77005BF39C /* SelectEmployeeView.swift */,
+			);
+			path = SelectEmployeeView;
 			sourceTree = "<group>";
 		};
 		8468D7D8282872FD008D18D4 /* Profile */ = {
@@ -218,6 +284,22 @@
 			path = DropDowns;
 			sourceTree = "<group>";
 		};
+		84ABA91F2908AC2800349E57 /* Employee */ = {
+			isa = PBXGroup;
+			children = (
+				84624A79289089DD00999CBF /* EmployeeController.swift */,
+			);
+			path = Employee;
+			sourceTree = "<group>";
+		};
+		84ABA9202908AC3A00349E57 /* Truck */ = {
+			isa = PBXGroup;
+			children = (
+				843EA1FC28D9186100628E0B /* TruckController.swift */,
+			);
+			path = Truck;
+			sourceTree = "<group>";
+		};
 		84BE4113281EE9EC002BC777 = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +338,7 @@
 		84BE4135281EF9D8002BC777 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8403023C298F0ED1008A507D /* BPSCompany */,
 				8473FDFD2862D4A300B89513 /* Employees */,
 				842819B72856853E00B8B366 /* Menu */,
 				84BE4154281F67D1002BC777 /* Home */,
@@ -285,6 +368,7 @@
 				84BE414D281EFB77002BC777 /* TextFields */,
 				84BE414A281EFB67002BC777 /* Buttons */,
 				84BE4138281EFA1C002BC777 /* Storyboards */,
+				843EA22528DE79B300628E0B /* Common */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -312,6 +396,7 @@
 				84BE413E281EFADB002BC777 /* Extension+UIFont.swift */,
 				84BE4141281EFADC002BC777 /* Extension+UITextField.swift */,
 				84BE4140281EFADC002BC777 /* Extension+UIView.swift */,
+				84538CC1294666E7005BF39C /* Extension+UIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -337,10 +422,11 @@
 		84BE4150281F56E5002BC777 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8403023F298F1A89008A507D /* BPSCompany */,
 				84BE4153281F5718002BC777 /* Login */,
 				8468D7EB2831982E008D18D4 /* Home */,
-				84624A79289089DD00999CBF /* EmployeeController.swift */,
-				843EA1FC28D9186100628E0B /* TruckController.swift */,
+				84ABA91F2908AC2800349E57 /* Employee */,
+				84ABA9202908AC3A00349E57 /* Truck */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -520,30 +606,39 @@
 			files = (
 				84BE4144281EFADC002BC777 /* Extension+UIFont.swift in Sources */,
 				8468D7E228287881008D18D4 /* Role.swift in Sources */,
+				84AF320F28E5136E00110C47 /* GenericHeaderView.swift in Sources */,
 				8473FE012862D4F700B89513 /* ListEmployeesViewController.swift in Sources */,
 				8468D7DC282874FF008D18D4 /* Truck.swift in Sources */,
+				84030241298F1AA7008A507D /* BPSCompanyController.swift in Sources */,
 				84BE4152281F5700002BC777 /* LoginController.swift in Sources */,
 				84BE415F28205A86002BC777 /* FirebaseService.swift in Sources */,
+				84538CBC2936FA77005BF39C /* SelectEmployeeView.swift in Sources */,
 				84BE413B281EFA59002BC777 /* LoginViewController.swift in Sources */,
+				84ABA9222908B05400349E57 /* AddTruckViewController.swift in Sources */,
 				84BE4124281EE9ED002BC777 /* InitialViewController.swift in Sources */,
 				84902DEF2886248C00075AA3 /* ACDateField.swift in Sources */,
 				84BE4143281EFADC002BC777 /* Extension+UIView.swift in Sources */,
 				8468D7DA28287368008D18D4 /* HomeTrucksListViewController.swift in Sources */,
+				840302432991EA6A008A507D /* AddBPSCompanyViewController.swift in Sources */,
 				84BE4120281EE9ED002BC777 /* AppDelegate.swift in Sources */,
 				843EA1FB28D9161800628E0B /* AllTrucksListViewController.swift in Sources */,
 				8468D7D728286B9C008D18D4 /* ProfileViewController.swift in Sources */,
 				8468D7E028287810008D18D4 /* BPSCompany.swift in Sources */,
 				84BE415B28203848002BC777 /* Current.swift in Sources */,
+				843EA22328DE799D00628E0B /* EditTruckView.swift in Sources */,
 				84BE4158281F6C21002BC777 /* User.swift in Sources */,
+				84538CC2294666E7005BF39C /* Extension+UIImage.swift in Sources */,
 				843EA1FD28D9186100628E0B /* TruckController.swift in Sources */,
 				84BE4142281EFADC002BC777 /* Extension+UITextField.swift in Sources */,
 				8473FDFF2862D4C700B89513 /* AddEmployeeViewController.swift in Sources */,
 				8468D7ED2831A759008D18D4 /* SelectTruckTableViewCell.swift in Sources */,
+				8403023E298F0EFE008A507D /* BPSCompaniesViewController.swift in Sources */,
 				8468D7DE28287672008D18D4 /* Employee.swift in Sources */,
 				842819BC2856967700B8B366 /* MenuCellView.swift in Sources */,
 				84624A7A289089DD00999CBF /* EmployeeController.swift in Sources */,
 				84624A7C28908A6200999CBF /* FirebaseService+Employee.swift in Sources */,
 				8468D7E6282F31CF008D18D4 /* HomeController.swift in Sources */,
+				843EA22828DE97D800628E0B /* EditTruckPopUpViewController.swift in Sources */,
 				843EA1F528D6046300628E0B /* SelectedTrucksViewController.swift in Sources */,
 				84BE4122281EE9ED002BC777 /* SceneDelegate.swift in Sources */,
 				84BE4145281EFADC002BC777 /* Extension+UIColor.swift in Sources */,
@@ -553,6 +648,7 @@
 				84BE4156281F67E7002BC777 /* HomeViewController.swift in Sources */,
 				84BE414F281EFB8A002BC777 /* TextInputView.swift in Sources */,
 				8468D7E4282F20C6008D18D4 /* MenuViewController.swift in Sources */,
+				843EA22A28DFCBCD00628E0B /* AllEmployeesListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,8 +802,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -715,6 +810,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rheedls.Asist-Control";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -735,8 +833,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -744,6 +841,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rheedls.Asist-Control";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

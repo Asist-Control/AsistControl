@@ -12,7 +12,7 @@ class ProfileViewController: UIViewController {
     private let profileImage: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFit
-        iv.image = UIImage(systemName: "person.circle.fill")
+      iv.image = .personCircleFill
         iv.image?.withTintColor(.primary)
         iv.enableAutolayout()
         

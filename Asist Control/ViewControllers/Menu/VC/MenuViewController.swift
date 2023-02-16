@@ -34,7 +34,7 @@ class MenuViewController: UIViewController {
     let home = MenuCellView(
       title: "Inicio",
       subtitle: "",
-      icon: UIImage(systemName: "house.fill"),
+      icon: .houseFill,
       action: {
         print("Inicio fue seleccionada")
       }
@@ -44,7 +44,7 @@ class MenuViewController: UIViewController {
     let extraHours = MenuCellView(
       title: "Horas extras",
       subtitle: "Agregar, Editar, Eliminar",
-      icon: UIImage(systemName: "person.badge.clock.fill"),
+      icon: .personBadgeClockFill,
       action: {
         print("Horas extras fue seleccionada")
       }
@@ -54,7 +54,7 @@ class MenuViewController: UIViewController {
     let absents = MenuCellView(
       title: "Faltas",
       subtitle: "Agregar, Editar, Eliminar",
-      icon: UIImage(systemName: "clock.badge.exclamationmark"),
+      icon: .clockBadgeExclamationMark,
       action: {
         print("Faltas fue seleccionada")
       }
@@ -64,7 +64,7 @@ class MenuViewController: UIViewController {
     let resports = MenuCellView(
       title: "Reportes",
       subtitle: "",
-      icon: UIImage(systemName: "doc.text.fill"),
+      icon: .docTextFill,
       action: {
         print("Reportes fue seleccionada")
       }
@@ -74,7 +74,7 @@ class MenuViewController: UIViewController {
     let employees = MenuCellView(
       title: "Empleados",
       subtitle: "Agregar, Editar, Eliminar",
-      icon: UIImage(systemName: "person.fill"),
+      icon: .personFill,
       action: { [weak self] in
         guard let self = self else { return }
         let vc = ListEmployeesViewController()
@@ -86,7 +86,7 @@ class MenuViewController: UIViewController {
     let addTruck = MenuCellView(
       title: "Empresas Fleteras",
       subtitle: "Agregar, Editar, Eliminar",
-      icon: UIImage(systemName: "train.side.front.car"),
+      icon: .trainSideFrontCar,
       action: { [weak self] in
         guard let self = self else { return }
         let allTrucksVC = AllTrucksListViewController()
@@ -98,9 +98,11 @@ class MenuViewController: UIViewController {
     let companyBPS = MenuCellView(
       title: "Empresas BPS",
       subtitle: "Agregar, Editar, Eliminar",
-      icon: UIImage(systemName: "scroll.fill"),
-      action: {
-        print("Empresas BPS fue seleccionada")
+      icon: .scrollFill,
+      action: { [weak self] in
+        guard let self = self else { return }
+        let allBPSCompanies = BPSCompaniesViewController()
+        self.navigationController?.pushViewController(allBPSCompanies, animated: true)
       }
     )
     containerStack.addArrangedSubview(companyBPS)
@@ -108,7 +110,7 @@ class MenuViewController: UIViewController {
     let users = MenuCellView(
       title: "Usuarios",
       subtitle: "Agregar, Editar, Eliminar",
-      icon: UIImage(systemName: "person.circle.fill"),
+      icon: .personCircleFill,
       action: {
         print("Usuarios fue seleccionada")
       }
@@ -119,7 +121,7 @@ class MenuViewController: UIViewController {
   private func setupSubviews() {
     view.addSubview(containerStack)
     
-    let closeItem = UIBarButtonItem(image: UIImage(systemName: "multiply"), style: .plain, target: self, action: #selector(dismissViewController))
+    let closeItem = UIBarButtonItem(image: .multiply, style: .plain, target: self, action: #selector(dismissViewController))
     closeItem.tintColor = .label
     navigationItem.rightBarButtonItem = closeItem
   }

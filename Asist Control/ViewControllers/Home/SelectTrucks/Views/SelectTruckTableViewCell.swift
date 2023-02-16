@@ -22,7 +22,7 @@ class SelectTruckTableViewCell: UITableViewCell {
     
     private let selectedBadge: UIImageView = {
         let iv = UIImageView()
-        iv.image = UIImage(systemName: "checkmark.circle.fill")
+      iv.image = .checkmarkCircleFill
         iv.contentMode = .scaleAspectFit
         iv.tintColor = .successGreen
         iv.enableAutolayout()
