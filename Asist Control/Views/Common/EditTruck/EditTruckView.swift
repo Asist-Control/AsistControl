@@ -20,6 +20,7 @@ class EditTruckView: UIView {
   private var truckSelected: Truck?
 
   private let headerView = GenericHeaderView()
+  private let allEmployeesList = AllEmployeesListView()
 
   private let overlay: UIView = {
     let view = UIView()
@@ -105,20 +106,23 @@ class EditTruckView: UIView {
     containerView.arrangedSubviews.forEach { $0.removeFromSuperview() }
 
     guard let driver = truck.driver else { return }
-    driverView = EmployeeEditableView(employee: driver, for: parent, canEdit: canEdit)
+    driverView = EmployeeEditableView(employee: driver, for: parent, canEdit: canEdit, for: .driver)
     if let driverView = driverView {
+      driverView.delegate = self
       containerView.addArrangedSubview(driverView)
     }
-    
+
     guard let helperOne = truck.assistant1 else { return }
-    helperOneView = EmployeeEditableView(employee: helperOne, for: parent, canEdit: canEdit)
+    helperOneView = EmployeeEditableView(employee: helperOne, for: parent, canEdit: canEdit, for: .assistant)
     if let helperOneView = helperOneView {
+      helperOneView.delegate = self
       containerView.addArrangedSubview(helperOneView)
     }
-    
+
     guard let helperTwo = truck.assistant2 else { return }
-    helperTwoView = EmployeeEditableView(employee: helperTwo, for: parent, canEdit: canEdit)
+    helperTwoView = EmployeeEditableView(employee: helperTwo, for: parent, canEdit: canEdit, for: .assistant)
     if let helperTwoView = helperTwoView {
+      helperTwoView.delegate = self
       containerView.addArrangedSubview(helperTwoView)
     }
   }
@@ -154,31 +158,55 @@ class EditTruckView: UIView {
       overlay.bottomAnchor.constraint(equalTo: parent.bottomAnchor)
     ])
   }
-  
+}
+
+extension EditTruckView: EmployeeEditableViewDelegate {
+  func changeEmployeeWasTapped(for targetView: UIView) {
+    guard let parent else { return }
+    parent.addSubview(allEmployeesList)
+    allEmployeesList.delegate = self
+    allEmployeesList.configure(for: targetView, filteredBy: .withoutTruck)
+    NSLayoutConstraint.activate([
+      allEmployeesList.centerXAnchor.constraint(equalTo: parent.centerXAnchor),
+      allEmployeesList.centerYAnchor.constraint(equalTo: parent.centerYAnchor)
+    ])
+  }
+}
+
+extension EditTruckView: AllEmployeesListViewDelegate {
+  func employeeSelected(with employee: Employee, for view: AllEmployeesListView, target: UIView?) {
+    guard let target else { return }
+    let editableView = target as? EmployeeEditableView
+    editableView?.updateEmployee(newEmployee: employee)
+    view.removeFromSuperview()
+  }
 }
 
 protocol EmployeeEditableViewDelegate: AnyObject {
-  func changeEmployeeWasTapped()
+  func changeEmployeeWasTapped(for targetView: UIView)
 }
 
-class EmployeeEditableView: UIView, AllEmployeesListViewDelegate {
+class EmployeeEditableView: UIView {
+
+  // MARK: - Properties
 
   private var employee: Employee?
   private var canEdit: Bool = true
+  private var role: Role = .driver
   private var parent: UIView?
   weak var delegate: EmployeeEditableViewDelegate?
 
-  private let imageSize: CGFloat = 50
-
-  private let allEmployeesList = AllEmployeesListView()
+  private let imageSize: CGFloat = 30
+  private let margin: CGFloat = 5
+  private let bigMargin: CGFloat = 10
+  private let cornerRadious: CGFloat = 10
 
   private let containerStack: UIStackView = {
     let stack = UIStackView()
     stack.axis = .horizontal
     stack.distribution = .fillProportionally
-    stack.spacing = 10
     stack.enableAutolayout()
-    
+
     return stack
   }()
 
@@ -195,43 +223,45 @@ class EmployeeEditableView: UIView, AllEmployeesListViewDelegate {
     image.contentMode = .scaleAspectFit
     image.isUserInteractionEnabled = true
     image.enableAutolayout()
-    
+
     return image
   }()
 
   private let nameLabel: UILabel = {
     let label = UILabel()
     label.font = .h3
+    label.numberOfLines = 0
     label.enableAutolayout()
 
     return label
   }()
   
-  convenience init(employee: Employee, for parent: UIView, canEdit: Bool = true) {
+  convenience init(employee: Employee, for parent: UIView, canEdit: Bool = true, for role: Role) {
     self.init(frame: .zero)
     self.employee = employee
     self.canEdit = canEdit
     self.parent = parent
+    self.role = role
 
-    allEmployeesList.delegate = self
     enableAutolayout()
     setupView()
   }
 
   private func setupView() {
     backgroundColor = .white
-    layer.cornerRadius = 10
+    layer.cornerRadius = cornerRadious
 
     addSubview(containerStack)
+    containerStack.spacing = bigMargin
     NSLayoutConstraint.activate([
-      containerStack.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-      containerStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
-      containerStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-      containerStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
+      containerStack.topAnchor.constraint(equalTo: topAnchor, constant: bigMargin),
+      containerStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: margin),
+      containerStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -margin),
+      containerStack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -margin),
 
       leftImage.widthAnchor.constraint(equalToConstant: imageSize),
 
-      changeImage.widthAnchor.constraint(equalToConstant: imageSize * 0.6)
+      changeImage.widthAnchor.constraint(equalToConstant: imageSize * 0.8)
     ])
 
     containerStack.addArrangedSubview(leftImage)
@@ -242,7 +272,7 @@ class EmployeeEditableView: UIView, AllEmployeesListViewDelegate {
     }
 
     updateEmployeeName()
-    leftImage.image = employee?.role == .driver ? UIImage(named: "driverSymbol") : UIImage(named: "helperSymbol")
+    leftImage.image = role == .driver ? UIImage(named: "driverSymbol") : UIImage(named: "helperSymbol")
     changeImage.image = UIImage(named: "changePers")
   }
 
@@ -252,7 +282,7 @@ class EmployeeEditableView: UIView, AllEmployeesListViewDelegate {
   }
 
   private func updateEmployeeName() {
-    guard let employee = employee else { return }
+    guard let employee else { return }
 
     nameLabel.text = employee.displayName
   }
@@ -261,20 +291,17 @@ class EmployeeEditableView: UIView, AllEmployeesListViewDelegate {
     return employee
   }
 
-  @objc private func changeEmployee() {
-    guard let parent = parent else { return }
-    parent.addSubview(allEmployeesList)
-    allEmployeesList.configure(for: parent, filteredBy: .withoutTruck)
-    
-    NSLayoutConstraint.activate([
-      allEmployeesList.centerXAnchor.constraint(equalTo: parent.centerXAnchor),
-      allEmployeesList.centerYAnchor.constraint(equalTo: parent.centerYAnchor)
-    ])
+  func updateEmployee(newEmployee: Employee) {
+    removeTruckFromPreviousEmployee()
+    employee = newEmployee
+    updateEmployeeName()
   }
 
-  func employeeSelected(with employee: Employee, for view: AllEmployeesListView, target: UIView?) {
-    self.employee = employee
-    allEmployeesList.removeFromSuperview()
-    updateEmployeeName()
+  func removeTruckFromPreviousEmployee() {
+    employee?.truck = ""
+  }
+
+  @objc private func changeEmployee() {
+    delegate?.changeEmployeeWasTapped(for: self)
   }
 }
