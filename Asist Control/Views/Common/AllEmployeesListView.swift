@@ -113,30 +113,28 @@ class AllEmployeesListView: UIView {
 
   private func fetchEmployees() {
     activityIndicator.startAnimating()
-    FirebaseService.shared.getEmployees { [weak self] employees in
-      self?.employees = employees.filter({ employee in
-        switch self?.filter {
-        case .drivers:
-          return employee.role == .driver
-        case .helpers:
-          return employee.role == .assistant
-        case .withoutTruck:
-          return employee.truck == "" || employee.truck == "-"
-        case .withTruck:
-          return employee.truck != "" || employee.truck != "-"
-        case .notOn(let truckID):
-          return employee.truck != truckID
-        case .driversWithoutTruck:
-          return employee.role == .driver && employee.truck == "" || employee.truck == "-"
-        case .helpersWithoutTruck:
-          return employee.role == .assistant && employee.truck == "" || employee.truck == "-"
-        default:
-          return true
-        }
-      })
-      self?.tableView.reloadData()
-      self?.activityIndicator.stopAnimating()
+    employees = Current.shared.employees.filter { employee in
+      switch self.filter {
+      case .drivers:
+        return employee.role == .driver
+      case .helpers:
+        return employee.role == .assistant
+      case .withoutTruck:
+        return employee.truck == "" || employee.truck == "-"
+      case .withTruck:
+        return employee.truck != "" || employee.truck != "-"
+      case .notOn(let truckID):
+        return employee.truck != truckID
+      case .driversWithoutTruck:
+        return employee.role == .driver && employee.truck == "" || employee.truck == "-"
+      case .helpersWithoutTruck:
+        return employee.role == .assistant && employee.truck == "" || employee.truck == "-"
+      default:
+        return true
+      }
     }
+    self.tableView.reloadData()
+    self.activityIndicator.stopAnimating()
   }
 }
 

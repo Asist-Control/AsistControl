@@ -17,23 +17,17 @@ class Truck {
   
   var isSelected: Bool = false
   
-  var driver: Employee?
+  var driver: Employee? {
+    return Current.shared.employees.first(where: { $0.ci == driverId })
+  }
 
   var assistant1: Employee? {
-    get {
-//      guard !assistants.isEmpty else { return nil }
-//      return assistants[0]
-      guard !assistantsIds.isEmpty else { return nil }
-      return Current.shared.employees.first(where: { $0.ci == assistantsIds.first })
-    }
+    guard !assistantsIds.isEmpty else { return nil }
+    return Current.shared.employees.first(where: { $0.ci == assistantsIds.first })
   }
   var assistant2: Employee? {
-    get {
-//      guard !assistants.isEmpty else { return nil }
-//      return assistants[1]
-      guard assistantsIds.count > 0 else { return nil }
-      return Current.shared.employees.first(where: { $0.ci == assistantsIds.last })
-    }
+    guard assistantsIds.count > 0 else { return nil }
+    return Current.shared.employees.first(where: { $0.ci == assistantsIds.last })
   }
   
   var employees: [Employee] = []
@@ -77,15 +71,17 @@ class Truck {
     return employees.count == 3
   }
 
-  func updateTruck(driver: Employee? = nil, helperOne: Employee? = nil, helperTwo: Employee? = nil) {
+  func updateTruck(driver: Employee? = nil, helperOne: Employee?, helperTwo: Employee?) {
     if let driver = driver {
-      self.driver = driver
+      self.driverId = driver.ci
+      driver.truck = id
     }
-    if let helperOne = helperOne {
+    if let helperOne, let helperTwo {
+      self.assistantsIds.removeAll()
       self.assistantsIds.insert(helperOne.ci, at: 0)
-    }
-    if let helperTwo = helperTwo {
-      self.self.assistantsIds.insert(helperTwo.ci, at: 1)
+      self.assistant1?.truck = id
+      self.assistantsIds.insert(helperTwo.ci, at: 1)
+      self.assistant2?.truck = id
     }
   }
 
