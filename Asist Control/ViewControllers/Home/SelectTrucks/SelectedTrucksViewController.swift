@@ -23,14 +23,7 @@ class SelectedTrucksViewController: UIViewController {
     
     return label
   }()
-  
-  private let scrollView: UIScrollView = {
-    let scroll = UIScrollView()
-    scroll.enableAutolayout()
-    
-    return scroll
-  }()
-  
+
   private let contentView: UIView = {
     let view = UIView()
     view.enableAutolayout()
@@ -69,22 +62,13 @@ class SelectedTrucksViewController: UIViewController {
     listView.dataSource = self
   }
 
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-
-    let cellHeightsTotal = CGFloat(50 * selectedTrucks.count)
-    let sectionsHeightTotal = CGFloat(50 * 3)
-    tableViewHeight?.constant = (cellHeightsTotal + sectionsHeightTotal + continueButton.bounds.height + 55)
-  }
-
   private func setupSubviews() {
     
     title = "Camiones Seleccionados"
     
     listView.backgroundColor = .background
     view.addSubview(listViewTitle)
-    view.addSubview(scrollView)
-    scrollView.addSubview(contentView)
+    view.addSubview(contentView)
     
     contentView.addSubview(listView)
     contentView.addSubview(continueButton)
@@ -93,23 +77,16 @@ class SelectedTrucksViewController: UIViewController {
     setupTitleTextWithDate()
   }
   
-  var tableViewHeight: NSLayoutConstraint?
   private func setupConstraints() {
     NSLayoutConstraint.activate([
       listViewTitle.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
       listViewTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
       listViewTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
       
-      scrollView.topAnchor.constraint(equalTo: listViewTitle.bottomAnchor, constant: 10),
-      scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10),
-      
-      contentView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
-      contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-      contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-      contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-      contentView.widthAnchor.constraint(equalTo: view.widthAnchor),
+      contentView.topAnchor.constraint(equalTo: listViewTitle.bottomAnchor, constant: 10),
+      contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10),
       
       listView.topAnchor.constraint(equalTo: contentView.topAnchor),
       listView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
@@ -121,8 +98,6 @@ class SelectedTrucksViewController: UIViewController {
       continueButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
       continueButton.heightAnchor.constraint(equalToConstant: 56)
     ])
-    tableViewHeight = contentView.heightAnchor.constraint(equalToConstant: 0)
-    tableViewHeight?.isActive = true
   }
 
   private func setupActions() {

@@ -64,11 +64,7 @@ struct FirebaseService {
   }
 
   func uploadTrucksForToday(_ trucks: [Truck]) {
-    let todaysDate = Date()
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = K.Firebase.Formats.collectionDate
-    let today = dateFormatter.string(from: todaysDate)
-
+    let today = getTodaysDate()
     trucks.forEach { truck in
       firestore.collection("\(K.Firebase.wages)/\(today)").document(truck.id).setData([
         "driver": truck.driverId,
@@ -91,6 +87,35 @@ struct FirebaseService {
     ])
     completion(true)
     print("Truck \(truck.id) was added successfully")
+  }
+
+  func getTrucksForToday(completion: @escaping ([TruckForTodayResponse]) -> Void) {
+    let today = getTodaysDate()
+    firestore.collection("\(K.Firebase.wages)/\(today)").getDocuments { doc, error in
+      guard let documents = doc?.documents else { return }
+      var trucks: [TruckForTodayResponse] = []
+      documents.forEach { document in
+        let data = document.data()
+        let truckForToday = TruckForTodayResponse(id: document.documentID, dictionary: data)
+        trucks.append(truckForToday)
+      }
+      completion(trucks)
+    }
+  }
+
+  func trucksWereSelectedToday(completion: @escaping (Bool) -> Void) {
+    let today = getTodaysDate()
+    firestore.collection("\(K.Firebase.wages)/\(today)").getDocuments { doc, error in
+      guard let doc else { return completion(false) }
+      completion(!doc.documents.isEmpty)
+    }
+  }
+
+  private func getTodaysDate() -> String {
+    let todaysDate = Date()
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = K.Firebase.Formats.collectionDate
+    return dateFormatter.string(from: todaysDate)
   }
 
 }

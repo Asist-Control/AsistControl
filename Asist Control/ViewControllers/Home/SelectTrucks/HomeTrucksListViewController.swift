@@ -10,7 +10,11 @@ import UIKit
 class HomeTrucksListViewController: HomeViewController, HomeControllerDelegate {
   
   private lazy var controller = HomeController(delegate: self)
-  
+  var trucks: [Truck] = []
+  var selectedTrucks: [Truck] = []
+
+  var sections = BPSCompany.allCases
+
   private let listViewTitle: UILabel = {
     let label = UILabel()
     label.font = .h3
@@ -21,91 +25,69 @@ class HomeTrucksListViewController: HomeViewController, HomeControllerDelegate {
     
     return label
   }()
-  
-  private let scrollView: UIScrollView = {
-    let scroll = UIScrollView()
-    scroll.enableAutolayout()
-    
-    return scroll
-  }()
-  
+
   private let contentView: UIView = {
     let view = UIView()
     view.enableAutolayout()
-    
+
     return view
   }()
-    
+
   private let listView: UITableView = {
     let tv = UITableView()
     tv.backgroundColor = .background
     tv.isScrollEnabled = false
     tv.register(SelectTruckTableViewCell.self, forCellReuseIdentifier: SelectTruckTableViewCell.identifier)
     tv.enableAutolayout()
-    
+
     return tv
   }()
-    
+
   private let continueButton: ACButton = {
     let button = ACButton()
     button.title = "Continuar".uppercased()
     button.enableAutolayout()
-    
+
     return button
   }()
-    
-  var trucks: [Truck] = []
-  var selectedTrucks: [Truck] = []
-  
-  var sections = BPSCompany.allCases
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+
     setupSubviews()
     setupConstraints()
     setupActions()
 
     listView.delegate = self
     listView.dataSource = self
-    
+
     controller.getAllTrucksAndLoadThemIntoApp()
   }
-  
+
   private func setupSubviews() {
-      
     title = "Seleccionar camiones"
-    
     listView.backgroundColor = .background
+
     view.addSubview(listViewTitle)
-    view.addSubview(scrollView)
-    scrollView.addSubview(contentView)
-    
+    view.addSubview(contentView)
     contentView.addSubview(listView)
     contentView.addSubview(continueButton)
+
     continueButton.makeRoundedCorners()
-    
     setupTitleTextWithDate()
   }
-    
-  var tableViewHeight: NSLayoutConstraint?
+
   private func setupConstraints() {
     NSLayoutConstraint.activate([
       listViewTitle.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
       listViewTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
       listViewTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
       
-      scrollView.topAnchor.constraint(equalTo: listViewTitle.bottomAnchor, constant: 10),
-      scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10),
-      
-      contentView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
-      contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-      contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-      contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-      contentView.widthAnchor.constraint(equalTo: view.widthAnchor),
-      
+      contentView.topAnchor.constraint(equalTo: listViewTitle.bottomAnchor, constant: 10),
+      contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10),
+
       listView.topAnchor.constraint(equalTo: contentView.topAnchor),
       listView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
       listView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
@@ -116,22 +98,12 @@ class HomeTrucksListViewController: HomeViewController, HomeControllerDelegate {
       continueButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
       continueButton.heightAnchor.constraint(equalToConstant: 56)
     ])
-    tableViewHeight = contentView.heightAnchor.constraint(equalToConstant: 0)
-    tableViewHeight?.isActive = true
   }
 
   private func setupActions() {
     continueButton.addTarget(self, action: #selector(continueButtonWasTapped), for: .touchUpInside)
   }
-  
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-      
-    let cellHeightsTotal = CGFloat(50 * trucks.count)
-    let sectionsHeightTotal = CGFloat(50 * 3)
-    tableViewHeight?.constant = (cellHeightsTotal + sectionsHeightTotal + continueButton.bounds.height + 55)
-  }
-  
+
   private func setupTitleTextWithDate() {
     listViewTitle.text = Current.Today().stringDate
   }

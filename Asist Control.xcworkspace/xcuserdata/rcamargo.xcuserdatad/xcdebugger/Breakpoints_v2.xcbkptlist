@@ -318,8 +318,8 @@
             filePath = "Asist Control/Services/Firebase/FirebaseService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "uploadSingleTruck(_:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -407,22 +407,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D8422D9C-8948-4311-8CD0-2EAE40783681"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Asist Control/Views/Common/EditTruck/EditTruckView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "296"
-            endingLineNumber = "296"
-            landmarkName = "updateEmployee(newEmployee:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "0C334E6E-3A77-4752-8024-DB18F53C3258"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -439,16 +423,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "802FB3C8-0287-4A49-8027-F047C07DC2D7"
-            shouldBeEnabled = "Yes"
+            uuid = "03369FEC-286A-4C00-A7C3-F10CEA6CD7F2"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Asist Control/Views/Common/EditTruck/EditTruckView.swift"
+            filePath = "Asist Control/ViewControllers/InitialViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "305"
-            endingLineNumber = "305"
-            landmarkName = "changeEmployee()"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "goToLoginScreen()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B2A66854-5197-4764-BDAE-14AAFB6B294C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Asist Control/ViewControllers/InitialViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "goToLoginScreen()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
