@@ -31,6 +31,17 @@ class MainHomeViewController: HomeViewController {
   private let trucksView = HomeCellItem()
   private let employeesView = HomeCellItem()
 
+  private let actionsTitle: UILabel = {
+    let label = UILabel()
+    label.font = .body1Bold
+    label.textColor = .primaryLabel
+    label.text = "Acciones"
+    label.enableAutolayout()
+    return label
+  }()
+
+  private let actionsView = HomeCellItem()
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -46,6 +57,8 @@ class MainHomeViewController: HomeViewController {
 
     contentView.addSubview(trucksView)
     contentView.addSubview(employeesView)
+    contentView.addSubview(actionsTitle)
+    contentView.addSubview(actionsView)
   }
 
   private func setupConstraints() {
@@ -67,7 +80,15 @@ class MainHomeViewController: HomeViewController {
       employeesView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
       employeesView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
       employeesView.widthAnchor.constraint(equalTo: trucksView.widthAnchor),
-      employeesView.heightAnchor.constraint(equalTo: employeesView.widthAnchor)
+      employeesView.heightAnchor.constraint(equalTo: employeesView.widthAnchor),
+
+      actionsTitle.topAnchor.constraint(equalTo: trucksView.bottomAnchor, constant: 20),
+      actionsTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+
+      actionsView.topAnchor.constraint(equalTo: actionsTitle.bottomAnchor, constant: 10),
+      actionsView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+      actionsView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+      actionsView.heightAnchor.constraint(equalToConstant: 150)
     ])
   }
 
@@ -76,6 +97,8 @@ class MainHomeViewController: HomeViewController {
       self.trucksView.configure(with: "Camiones", and: count)
       self.employeesView.configure(with: "Empleados", and: count * 3)
     }
+
+    actionsView.configure(with: "Placeholder", and: 0)
   }
 
   private func setupTitleTextWithDate() {

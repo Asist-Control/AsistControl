@@ -28,5 +28,11 @@ struct EmployeeController {
       delegate.reloadEmployees?(employees.sorted(by: { $0.firstName < $1.firstName }))
     }
   }
+
+  func deleteEmployee(_ employee: Employee, completion: @escaping (Bool) -> Void) {
+    FirebaseService.shared.removeEmployee(employee) { success in
+      completion(success)
+    }
+  }
   
 }

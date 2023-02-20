@@ -15,6 +15,8 @@
 		8425210C29A1971600920317 /* MainHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425210B29A1971600920317 /* MainHomeController.swift */; };
 		8425210E29A40BEF00920317 /* TruckForTodayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425210D29A40BEF00920317 /* TruckForTodayResponse.swift */; };
 		8425211029A40C4100920317 /* HomeCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425210F29A40C4100920317 /* HomeCellItem.swift */; };
+		8425211229A4130000920317 /* EmployeeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425211129A4130000920317 /* EmployeeDetailsView.swift */; };
+		8425211429A428A300920317 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425211329A428A300920317 /* Extension+String.swift */; };
 		842819BC2856967700B8B366 /* MenuCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842819BB2856967700B8B366 /* MenuCellView.swift */; };
 		843EA1F528D6046300628E0B /* SelectedTrucksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EA1F428D6046300628E0B /* SelectedTrucksViewController.swift */; };
 		843EA1FB28D9161800628E0B /* AllTrucksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EA1FA28D9161700628E0B /* AllTrucksListViewController.swift */; };
@@ -75,6 +77,8 @@
 		8425210B29A1971600920317 /* MainHomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHomeController.swift; sourceTree = "<group>"; };
 		8425210D29A40BEF00920317 /* TruckForTodayResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckForTodayResponse.swift; sourceTree = "<group>"; };
 		8425210F29A40C4100920317 /* HomeCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellItem.swift; sourceTree = "<group>"; };
+		8425211129A4130000920317 /* EmployeeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsView.swift; sourceTree = "<group>"; };
+		8425211329A428A300920317 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		842819BB2856967700B8B366 /* MenuCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCellView.swift; sourceTree = "<group>"; };
 		843EA1F428D6046300628E0B /* SelectedTrucksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTrucksViewController.swift; sourceTree = "<group>"; };
 		843EA1FA28D9161700628E0B /* AllTrucksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTrucksListViewController.swift; sourceTree = "<group>"; };
@@ -225,6 +229,7 @@
 				843EA22928DFCBCD00628E0B /* AllEmployeesListView.swift */,
 				84AF320E28E5136E00110C47 /* GenericHeaderView.swift */,
 				8425210F29A40C4100920317 /* HomeCellItem.swift */,
+				8425211129A4130000920317 /* EmployeeDetailsView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -417,6 +422,7 @@
 				84BE4141281EFADC002BC777 /* Extension+UITextField.swift */,
 				84BE4140281EFADC002BC777 /* Extension+UIView.swift */,
 				84538CC1294666E7005BF39C /* Extension+UIImage.swift */,
+				8425211329A428A300920317 /* Extension+String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -644,6 +650,7 @@
 				84902DEF2886248C00075AA3 /* ACDateField.swift in Sources */,
 				84BE4143281EFADC002BC777 /* Extension+UIView.swift in Sources */,
 				8468D7DA28287368008D18D4 /* HomeTrucksListViewController.swift in Sources */,
+				8425211229A4130000920317 /* EmployeeDetailsView.swift in Sources */,
 				840302432991EA6A008A507D /* AddBPSCompanyViewController.swift in Sources */,
 				84BE4120281EE9ED002BC777 /* AppDelegate.swift in Sources */,
 				843EA1FB28D9161800628E0B /* AllTrucksListViewController.swift in Sources */,
@@ -662,6 +669,7 @@
 				8468D7DE28287672008D18D4 /* Employee.swift in Sources */,
 				842819BC2856967700B8B366 /* MenuCellView.swift in Sources */,
 				84624A7A289089DD00999CBF /* EmployeeController.swift in Sources */,
+				8425211429A428A300920317 /* Extension+String.swift in Sources */,
 				84624A7C28908A6200999CBF /* FirebaseService+Employee.swift in Sources */,
 				8468D7E6282F31CF008D18D4 /* HomeController.swift in Sources */,
 				8425211029A40C4100920317 /* HomeCellItem.swift in Sources */,
