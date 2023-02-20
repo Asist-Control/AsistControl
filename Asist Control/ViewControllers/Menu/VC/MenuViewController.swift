@@ -31,16 +31,6 @@ class MenuViewController: UIViewController {
   }
   
   private func setupItems() {
-    let home = MenuCellView(
-      title: "Inicio",
-      subtitle: "",
-      icon: .houseFill,
-      action: {
-        print("Inicio fue seleccionada")
-      }
-    )
-    containerStack.addArrangedSubview(home)
-    
     let extraHours = MenuCellView(
       title: "Horas extras",
       subtitle: "Agregar, Editar, Eliminar",

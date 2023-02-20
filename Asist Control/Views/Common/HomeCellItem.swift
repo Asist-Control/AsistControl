@@ -11,7 +11,7 @@ class HomeCellItem: UIView {
   
   private let title: UILabel = {
     let label = UILabel()
-    label.font = .systemFont(ofSize: 15, weight: .medium)
+    label.font = .h3
     label.textAlignment = .center
     label.enableAutolayout()
     return label

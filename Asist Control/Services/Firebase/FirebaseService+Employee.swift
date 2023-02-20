@@ -79,5 +79,16 @@ extension FirebaseService {
       createEmployee(employee)
     }
   }
+
+  func removeEmployee(_ employee: Employee, completion: @escaping (Bool) -> Void) {
+    firestore.collection(K.Firebase.employee).document(employee.ci).delete { error in
+      if let error {
+        print("Error deleting the employee: \(error.localizedDescription)")
+        completion(false)
+      } else {
+        completion(true)
+      }
+    }
+  }
   
 }

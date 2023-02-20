@@ -18,6 +18,8 @@ class ListEmployeesViewController: UIViewController, EmployeeControllerDelegate 
     return table
   }()
 
+  let employeeDetailView = EmployeeDetailsView()
+
   // MARK: - Properties
   private var employees: [Employee] = []
   private lazy var controller = EmployeeController(delegate: self)
@@ -31,6 +33,7 @@ class ListEmployeesViewController: UIViewController, EmployeeControllerDelegate 
     setupConstraints()
 
     delegate = self
+    employeeDetailView.delegate = self
   }
 
   override func viewDidAppear(_ animated: Bool) {
@@ -78,6 +81,10 @@ class ListEmployeesViewController: UIViewController, EmployeeControllerDelegate 
     tableView.reloadData()
   }
 
+  private func reloadTable() {
+    controller.loadEmployees()
+  }
+
 }
 
 extension ListEmployeesViewController: UITableViewDataSource {
@@ -89,8 +96,35 @@ extension ListEmployeesViewController: UITableViewDataSource {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
     cell.textLabel?.text = employees[indexPath.row].displayName
+    cell.selectionStyle = .none
     cell.backgroundColor = .clear
     return cell
+  }
+
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let employee = employees[indexPath.row]
+    employeeDetailView.configure(with: employee, for: self)
+  }
+}
+
+extension ListEmployeesViewController: EmployeeDetailsViewDelegate {
+  func removeEmployee(_ employee: Employee) {
+    controller.deleteEmployee(employee) { [weak self] success in
+      if success {
+        self?.employeeDetailView.closeView()
+        let alert = UIAlertController(title: "Empleado eliminado", message: "\(employee.displayName) ha sido eliminado", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Continuar", style: .default) { _ in
+          self?.reloadTable()
+        }
+        alert.addAction(cancelAction)
+        self?.present(alert, animated: true)
+      } else {
+        let alert = UIAlertController(title: "Error", message: "No se pudo elimiar el empleado", preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel)
+        alert.addAction(cancelAction)
+        self?.present(alert, animated: true)
+      }
+    }
   }
 }
 
