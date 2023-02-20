@@ -97,7 +97,6 @@ class MainHomeViewController: HomeViewController {
       self.trucksView.configure(with: "Camiones", and: count)
       self.employeesView.configure(with: "Empleados", and: count * 3)
     }
-
     actionsView.configure(with: "Placeholder", and: 0)
   }
 
