@@ -10,13 +10,14 @@
 		8403023E298F0EFE008A507D /* BPSCompaniesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403023D298F0EFE008A507D /* BPSCompaniesViewController.swift */; };
 		84030241298F1AA7008A507D /* BPSCompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84030240298F1AA7008A507D /* BPSCompanyController.swift */; };
 		840302432991EA6A008A507D /* AddBPSCompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840302422991EA6A008A507D /* AddBPSCompanyViewController.swift */; };
-		840CE7A229A13CE40011EBC5 /* EmployeeEditableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840CE7A129A13CE40011EBC5 /* EmployeeEditableView.swift */; };
-		840CE7A529A16DC00011EBC5 /* MainHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840CE7A429A16DC00011EBC5 /* MainHomeViewController.swift */; };
-		8425210C29A1971600920317 /* MainHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425210B29A1971600920317 /* MainHomeController.swift */; };
-		8425210E29A40BEF00920317 /* TruckForTodayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425210D29A40BEF00920317 /* TruckForTodayResponse.swift */; };
-		8425211029A40C4100920317 /* HomeCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425210F29A40C4100920317 /* HomeCellItem.swift */; };
-		8425211229A4130000920317 /* EmployeeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425211129A4130000920317 /* EmployeeDetailsView.swift */; };
-		8425211429A428A300920317 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425211329A428A300920317 /* Extension+String.swift */; };
+		8425211B29A4407100920317 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425211A29A4407100920317 /* InitialViewController.swift */; };
+		8425211D29A4409700920317 /* MainHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425211C29A4409700920317 /* MainHomeViewController.swift */; };
+		8425211F29A440DA00920317 /* EmployeeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425211E29A440DA00920317 /* EmployeeDetailsView.swift */; };
+		8425212129A440E200920317 /* HomeCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425212029A440E200920317 /* HomeCellItem.swift */; };
+		8425212329A4411300920317 /* EmployeeEditableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425212229A4411300920317 /* EmployeeEditableView.swift */; };
+		8425212529A4414100920317 /* MainHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425212429A4414000920317 /* MainHomeController.swift */; };
+		8425212729A4416200920317 /* TruckForTodayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425212629A4416200920317 /* TruckForTodayResponse.swift */; };
+		8425212929A4418600920317 /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8425212829A4418600920317 /* Extension+String.swift */; };
 		842819BC2856967700B8B366 /* MenuCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842819BB2856967700B8B366 /* MenuCellView.swift */; };
 		843EA1F528D6046300628E0B /* SelectedTrucksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EA1F428D6046300628E0B /* SelectedTrucksViewController.swift */; };
 		843EA1FB28D9161800628E0B /* AllTrucksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843EA1FA28D9161700628E0B /* AllTrucksListViewController.swift */; };
@@ -46,7 +47,6 @@
 		84AF320F28E5136E00110C47 /* GenericHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AF320E28E5136E00110C47 /* GenericHeaderView.swift */; };
 		84BE4120281EE9ED002BC777 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE411F281EE9ED002BC777 /* AppDelegate.swift */; };
 		84BE4122281EE9ED002BC777 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE4121281EE9ED002BC777 /* SceneDelegate.swift */; };
-		84BE4124281EE9ED002BC777 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE4123281EE9ED002BC777 /* InitialViewController.swift */; };
 		84BE4127281EE9ED002BC777 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84BE4125281EE9ED002BC777 /* Main.storyboard */; };
 		84BE4129281EE9F7002BC777 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84BE4128281EE9F7002BC777 /* Assets.xcassets */; };
 		84BE412C281EE9F7002BC777 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84BE412A281EE9F7002BC777 /* LaunchScreen.storyboard */; };
@@ -72,13 +72,14 @@
 		8403023D298F0EFE008A507D /* BPSCompaniesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPSCompaniesViewController.swift; sourceTree = "<group>"; };
 		84030240298F1AA7008A507D /* BPSCompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPSCompanyController.swift; sourceTree = "<group>"; };
 		840302422991EA6A008A507D /* AddBPSCompanyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBPSCompanyViewController.swift; sourceTree = "<group>"; };
-		840CE7A129A13CE40011EBC5 /* EmployeeEditableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeEditableView.swift; sourceTree = "<group>"; };
-		840CE7A429A16DC00011EBC5 /* MainHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHomeViewController.swift; sourceTree = "<group>"; };
-		8425210B29A1971600920317 /* MainHomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHomeController.swift; sourceTree = "<group>"; };
-		8425210D29A40BEF00920317 /* TruckForTodayResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckForTodayResponse.swift; sourceTree = "<group>"; };
-		8425210F29A40C4100920317 /* HomeCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellItem.swift; sourceTree = "<group>"; };
-		8425211129A4130000920317 /* EmployeeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsView.swift; sourceTree = "<group>"; };
-		8425211329A428A300920317 /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
+		8425211A29A4407100920317 /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		8425211C29A4409700920317 /* MainHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainHomeViewController.swift; sourceTree = "<group>"; };
+		8425211E29A440DA00920317 /* EmployeeDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsView.swift; sourceTree = "<group>"; };
+		8425212029A440E200920317 /* HomeCellItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCellItem.swift; sourceTree = "<group>"; };
+		8425212229A4411300920317 /* EmployeeEditableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeEditableView.swift; sourceTree = "<group>"; };
+		8425212429A4414000920317 /* MainHomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainHomeController.swift; sourceTree = "<group>"; };
+		8425212629A4416200920317 /* TruckForTodayResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TruckForTodayResponse.swift; sourceTree = "<group>"; };
+		8425212829A4418600920317 /* Extension+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		842819BB2856967700B8B366 /* MenuCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCellView.swift; sourceTree = "<group>"; };
 		843EA1F428D6046300628E0B /* SelectedTrucksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTrucksViewController.swift; sourceTree = "<group>"; };
 		843EA1FA28D9161700628E0B /* AllTrucksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTrucksListViewController.swift; sourceTree = "<group>"; };
@@ -109,7 +110,6 @@
 		84BE411C281EE9ED002BC777 /* Asist Control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Asist Control.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84BE411F281EE9ED002BC777 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84BE4121281EE9ED002BC777 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		84BE4123281EE9ED002BC777 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		84BE4126281EE9ED002BC777 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84BE4128281EE9F7002BC777 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84BE412B281EE9F7002BC777 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -169,10 +169,10 @@
 			path = BPSCompany;
 			sourceTree = "<group>";
 		};
-		840CE7A329A16D970011EBC5 /* Initial */ = {
+		8425211529A4400500920317 /* Initial */ = {
 			isa = PBXGroup;
 			children = (
-				84BE4123281EE9ED002BC777 /* InitialViewController.swift */,
+				8425211A29A4407100920317 /* InitialViewController.swift */,
 			);
 			path = Initial;
 			sourceTree = "<group>";
@@ -227,9 +227,9 @@
 				84538CBA2936F994005BF39C /* SelectEmployeeView */,
 				843EA22628DE97B400628E0B /* EditTruck */,
 				843EA22928DFCBCD00628E0B /* AllEmployeesListView.swift */,
+				8425211E29A440DA00920317 /* EmployeeDetailsView.swift */,
 				84AF320E28E5136E00110C47 /* GenericHeaderView.swift */,
-				8425210F29A40C4100920317 /* HomeCellItem.swift */,
-				8425211129A4130000920317 /* EmployeeDetailsView.swift */,
+				8425212029A440E200920317 /* HomeCellItem.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -238,8 +238,8 @@
 			isa = PBXGroup;
 			children = (
 				843EA22228DE799D00628E0B /* EditTruckView.swift */,
+				8425212229A4411300920317 /* EmployeeEditableView.swift */,
 				843EA22728DE97D800628E0B /* EditTruckPopUpViewController.swift */,
-				840CE7A129A13CE40011EBC5 /* EmployeeEditableView.swift */,
 			);
 			path = EditTruck;
 			sourceTree = "<group>";
@@ -279,8 +279,8 @@
 		8468D7EB2831982E008D18D4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				8425212429A4414000920317 /* MainHomeController.swift */,
 				8468D7E5282F31CF008D18D4 /* HomeController.swift */,
-				8425210B29A1971600920317 /* MainHomeController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -422,7 +422,7 @@
 				84BE4141281EFADC002BC777 /* Extension+UITextField.swift */,
 				84BE4140281EFADC002BC777 /* Extension+UIView.swift */,
 				84538CC1294666E7005BF39C /* Extension+UIImage.swift */,
-				8425211329A428A300920317 /* Extension+String.swift */,
+				8425212829A4418600920317 /* Extension+String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -468,10 +468,10 @@
 		84BE4154281F67D1002BC777 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				840CE7A329A16D970011EBC5 /* Initial */,
+				8425211529A4400500920317 /* Initial */,
 				84BE4155281F67E7002BC777 /* HomeViewController.swift */,
+				8425211C29A4409700920317 /* MainHomeViewController.swift */,
 				842819B82856961F00B8B366 /* SelectTrucks */,
-				840CE7A429A16DC00011EBC5 /* MainHomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -479,13 +479,13 @@
 		84BE41592820381E002BC777 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8425212629A4416200920317 /* TruckForTodayResponse.swift */,
 				84BE4157281F6C21002BC777 /* User.swift */,
 				84BE415A28203848002BC777 /* Current.swift */,
 				8468D7DB282874FF008D18D4 /* Truck.swift */,
 				8468D7DD28287672008D18D4 /* Employee.swift */,
 				8468D7DF28287810008D18D4 /* BPSCompany.swift */,
 				8468D7E128287881008D18D4 /* Role.swift */,
-				8425210D29A40BEF00920317 /* TruckForTodayResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -633,9 +633,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8425210E29A40BEF00920317 /* TruckForTodayResponse.swift in Sources */,
+				8425212929A4418600920317 /* Extension+String.swift in Sources */,
 				84BE4144281EFADC002BC777 /* Extension+UIFont.swift in Sources */,
-				840CE7A529A16DC00011EBC5 /* MainHomeViewController.swift in Sources */,
 				8468D7E228287881008D18D4 /* Role.swift in Sources */,
 				84AF320F28E5136E00110C47 /* GenericHeaderView.swift in Sources */,
 				8473FE012862D4F700B89513 /* ListEmployeesViewController.swift in Sources */,
@@ -644,19 +643,18 @@
 				84BE4152281F5700002BC777 /* LoginController.swift in Sources */,
 				84BE415F28205A86002BC777 /* FirebaseService.swift in Sources */,
 				84538CBC2936FA77005BF39C /* SelectEmployeeView.swift in Sources */,
+				8425212529A4414100920317 /* MainHomeController.swift in Sources */,
 				84BE413B281EFA59002BC777 /* LoginViewController.swift in Sources */,
 				84ABA9222908B05400349E57 /* AddTruckViewController.swift in Sources */,
-				84BE4124281EE9ED002BC777 /* InitialViewController.swift in Sources */,
 				84902DEF2886248C00075AA3 /* ACDateField.swift in Sources */,
 				84BE4143281EFADC002BC777 /* Extension+UIView.swift in Sources */,
 				8468D7DA28287368008D18D4 /* HomeTrucksListViewController.swift in Sources */,
-				8425211229A4130000920317 /* EmployeeDetailsView.swift in Sources */,
 				840302432991EA6A008A507D /* AddBPSCompanyViewController.swift in Sources */,
 				84BE4120281EE9ED002BC777 /* AppDelegate.swift in Sources */,
+				8425211D29A4409700920317 /* MainHomeViewController.swift in Sources */,
 				843EA1FB28D9161800628E0B /* AllTrucksListViewController.swift in Sources */,
 				8468D7D728286B9C008D18D4 /* ProfileViewController.swift in Sources */,
 				8468D7E028287810008D18D4 /* BPSCompany.swift in Sources */,
-				8425210C29A1971600920317 /* MainHomeController.swift in Sources */,
 				84BE415B28203848002BC777 /* Current.swift in Sources */,
 				843EA22328DE799D00628E0B /* EditTruckView.swift in Sources */,
 				84BE4158281F6C21002BC777 /* User.swift in Sources */,
@@ -664,18 +662,20 @@
 				843EA1FD28D9186100628E0B /* TruckController.swift in Sources */,
 				84BE4142281EFADC002BC777 /* Extension+UITextField.swift in Sources */,
 				8473FDFF2862D4C700B89513 /* AddEmployeeViewController.swift in Sources */,
+				8425211F29A440DA00920317 /* EmployeeDetailsView.swift in Sources */,
 				8468D7ED2831A759008D18D4 /* SelectTruckTableViewCell.swift in Sources */,
 				8403023E298F0EFE008A507D /* BPSCompaniesViewController.swift in Sources */,
 				8468D7DE28287672008D18D4 /* Employee.swift in Sources */,
+				8425212329A4411300920317 /* EmployeeEditableView.swift in Sources */,
 				842819BC2856967700B8B366 /* MenuCellView.swift in Sources */,
+				8425211B29A4407100920317 /* InitialViewController.swift in Sources */,
 				84624A7A289089DD00999CBF /* EmployeeController.swift in Sources */,
-				8425211429A428A300920317 /* Extension+String.swift in Sources */,
 				84624A7C28908A6200999CBF /* FirebaseService+Employee.swift in Sources */,
 				8468D7E6282F31CF008D18D4 /* HomeController.swift in Sources */,
-				8425211029A40C4100920317 /* HomeCellItem.swift in Sources */,
+				8425212729A4416200920317 /* TruckForTodayResponse.swift in Sources */,
 				843EA22828DE97D800628E0B /* EditTruckPopUpViewController.swift in Sources */,
+				8425212129A440E200920317 /* HomeCellItem.swift in Sources */,
 				843EA1F528D6046300628E0B /* SelectedTrucksViewController.swift in Sources */,
-				840CE7A229A13CE40011EBC5 /* EmployeeEditableView.swift in Sources */,
 				84BE4122281EE9ED002BC777 /* SceneDelegate.swift in Sources */,
 				84BE4145281EFADC002BC777 /* Extension+UIColor.swift in Sources */,
 				84BE414C281EFB72002BC777 /* ACButton.swift in Sources */,
